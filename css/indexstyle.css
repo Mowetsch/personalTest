@@ -79,8 +79,7 @@ body {
     position: relative;
     grid-area: input;
     background: none;
-    color: transparent;
-    text-shadow: 0 0 0 gray;
+    color: gray;
     text-align: center;
     outline: none;
     border: none;
@@ -112,7 +111,7 @@ body {
     z-index: 2 ;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+    background: linear-gradient(90deg, rgb(0, 211, 255) 0%, rgb(0, 240, 8) 100%);
     left: -101%;
 }
 #input-email_mainWindow:hover + .container-bottomline_mainWindow::after, #input-email_mainWindow:focus + .container-bottomline_mainWindow::after {
