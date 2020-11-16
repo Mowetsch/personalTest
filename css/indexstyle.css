@@ -1,0 +1,168 @@
+@font-face{
+    font-family:Poppins-Regular;src:url(../files/Poppins-Regular.ttf)
+}
+
+body {
+    font-family: Poppins-Regular,sans-serif;
+    font-smoothing: antialiased;
+    background: #f1f1f1;
+    background-image: url("../files/home_hinterzarten.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.wrapper-mainWindow_body {
+    z-index: 0;
+    position: absolute;
+    margin: 6% 39%;
+    width: 22%;
+    height: 600px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+    opacity: 90%;
+    animation-name: mainWindow_load;
+    animation-duration: 2s;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 10% 30% 20% 10% 0.5% 10% 10% 9.5%;
+    grid-template-areas:
+        "emtyl emty1 emtyr"
+        "emtyl text emtyr"
+        "emtyl emty2 emtyr"
+        "emtyl input emtyr"
+        "emtyl line emtyr"
+        "emtyl emty3 emtyr"
+        "emtyl submit emtyr"
+        "emtyl emty4 emtyr"
+}
+@keyframes mainWindow_load {
+    0%{top: -50%}
+    100%{top: 0}
+}
+
+@media screen and (max-width: 1600px) {
+    .wrapper-mainWindow_body {
+        width: 40%;
+        margin: 6% 30%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .wrapper-mainWindow_body {
+        width: 60%;
+        margin: 6% 20%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .wrapper-mainWindow_body {
+        width: 70%;
+        margin: 6% 15%;
+    }
+}
+
+.container-infotext_mainWindow {
+    z-index: 1;
+    grid-area: text;
+    border: none;
+    text-align: center;
+    font-size: x-large;
+}
+#image-logo_infotext {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#input-email_mainWindow {
+    z-index: 1 ;
+    position: relative;
+    grid-area: input;
+    background: none;
+    color: transparent;
+    text-shadow: 0 0 0 gray;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-family: Poppins-Regular,sans-serif;
+    animation-name: email_load;
+    animation-duration: 4.3s;
+}
+@keyframes email_load {
+    0%{opacity: 0%; transform: scale(0)}
+    100%{opacity: 100%; transform: scale(1)}
+}
+
+.container-bottomline_mainWindow {
+    z-index: 1 ;
+    position: relative;
+    grid-area: line;
+    top: -20px;
+    margin: 0 10%;
+    background: #bcbcbc;
+    border-radius: 35px;
+    border: none;
+    animation-name: email_load;
+    animation-duration: 4.3s;
+    overflow: hidden;
+}
+.container-bottomline_mainWindow::after {
+    content: "";
+    position: absolute;
+    z-index: 2 ;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+    left: -101%;
+}
+#input-email_mainWindow:hover + .container-bottomline_mainWindow::after, #input-email_mainWindow:focus + .container-bottomline_mainWindow::after  {
+    left: 0;
+    transition-duration: 2s;
+}
+
+.border-submitField_mainWindow {
+    z-index: 1 ;
+    position: relative;
+    grid-area: submit;
+    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    animation-name: submitField_load;
+    animation-duration: 4.3s;
+}
+@keyframes submitField_load {
+    0%{opacity: 0%; left: 60%; transform: scale(0.4)}
+    50%{opacity: 0%; left: 60%; transform: scale(0.4)}
+    100%{opacity: 100%;left: 0; transform: scale(1)}
+}
+
+#button-submit_submitField {
+    z-index: 2 ;
+    position: relative;
+    width: 97%;
+    height: 85%;
+    top: 7%;
+    background: #fffeeb;
+    border-radius: 35px;
+    text-align: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: Poppins-Regular,sans-serif;
+    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+}
+#button-submit_submitField:focus {
+    animation-name: submit_focus;
+    animation-duration: 3s;
+}
+@keyframes submit_focus {
+    0%{transform: scale(1); background: white; opacity: 1}
+    100%{transform:  scale(0.1); background: white; opacity: 0}
+}
+#button-submit_submitField:hover {
+    background: white;
+    transition-duration: 1s;
+}
