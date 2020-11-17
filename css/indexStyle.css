@@ -4,10 +4,7 @@
 
 body {
     font-family: Poppins-Regular,sans-serif;
-    background: #f1f1f1;
-    background-image: url("../files/home_hinterzarten.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: #f1f1f1 url("../files/home_hinterzarten.jpg") no-repeat fixed;
     background-size: cover;
 }
 .wrapper-mainWindow_body {
@@ -19,21 +16,24 @@ body {
     background: white;
     border-radius: 14px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
-    opacity: 90%;
+    opacity: 95%;
     animation-name: mainWindow_load;
     animation-duration: 2s;
     display: grid;
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 10% 30% 20% 10% 0.5% 10% 10% 9.5%;
+    grid-template-rows: 5% 20% 20% 10% 0.5% 5% 10% 0.5% 10% 10% 9%;
     grid-template-areas:
         "emtyl emty1 emtyr"
         "emtyl text emtyr"
         "emtyl emty2 emtyr"
-        "emtyl input emtyr"
-        "emtyl line emtyr"
+        "emtyl email emtyr"
+        "emtyl line1 emtyr"
         "emtyl emty3 emtyr"
-        "emtyl submit emtyr"
+        "emtyl password emtyr"
+        "emtyl line2 emtyr"
         "emtyl emty4 emtyr"
+        "emtyl submit emtyr"
+        "emtyl emty5 emtyr"
 }
 @keyframes mainWindow_load {
     0%{top: -50%}
@@ -59,27 +59,32 @@ body {
     }
 }
 
-.container-infotext_mainWindow {
+.container-infoText_mainWindow {
     z-index: 1;
     grid-area: text;
     border: none;
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
 }
-#image-logo_infotext {
+#image-logo_infoText {
     margin: 0;
     position: absolute;
-    top: 35%;
+    width: 150px;
+    height: 150px;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+
+
+
 #input-email_mainWindow {
     z-index: 1 ;
     position: relative;
-    grid-area: input;
+    grid-area: email;
     background: none;
-    color: gray;
+    color: #bcbcbc;
     text-align: center;
     outline: none;
     border: none;
@@ -92,10 +97,10 @@ body {
     100%{opacity: 100%; transform: scale(1)}
 }
 
-.container-bottomline_mainWindow {
+.container-bottomLine1_mainWindow {
     z-index: 1 ;
     position: relative;
-    grid-area: line;
+    grid-area: line1;
     top: -20px;
     margin: 0 10%;
     background: #bcbcbc;
@@ -105,42 +110,93 @@ body {
     animation-duration: 4.3s;
     overflow: hidden;
 }
-.container-bottomline_mainWindow::after {
+.container-bottomLine1_mainWindow::after {
     content: "";
     position: absolute;
     z-index: 2 ;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgb(0, 211, 255) 0%, rgb(0, 240, 8) 100%);
+    background: linear-gradient(90deg, rgba(46,0,255,1) 0%, rgba(255,0,129,1) 96%);
     left: -101%;
 }
-#input-email_mainWindow:hover + .container-bottomline_mainWindow::after, #input-email_mainWindow:focus + .container-bottomline_mainWindow::after {
+#input-email_mainWindow:hover + .container-bottomLine1_mainWindow::after, #input-email_mainWindow:focus + .container-bottomLine1_mainWindow::after {
     left: 0;
     transition-duration: 2s;
 }
+
+
+
+
+#input-password_mainWindow {
+    z-index: 1 ;
+    position: relative;
+    grid-area: password;
+    background: none;
+    color: #bcbcbc;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-family: Poppins-Regular,sans-serif;
+    animation-name: password_load;
+    animation-duration: 4.3s;
+}
+@keyframes password_load {
+    0%{opacity: 0; transform: scale(0)}
+    100%{opacity: 100%; transform: scale(1)}
+}
+
+.container-bottomLine2_mainWindow {
+    z-index: 1 ;
+    position: relative;
+    grid-area: line2;
+    top: -20px;
+    margin: 0 10%;
+    background: #bcbcbc;
+    border-radius: 35px;
+    border: none;
+    animation-name: password_load;
+    animation-duration: 4.3s;
+    overflow: hidden;
+}
+.container-bottomLine2_mainWindow::after {
+    content: "";
+    position: absolute;
+    z-index: 2 ;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(46,0,255,1) 0%, rgba(255,0,129,1) 96%);
+    left: -101%;
+}
+#input-password_mainWindow:hover + .container-bottomLine2_mainWindow::after, #input-password_mainWindow:focus + .container-bottomLine2_mainWindow::after {
+    left: 0;
+    transition-duration: 2s;
+}
+
+
+
 
 .border-submitField_mainWindow {
     z-index: 1 ;
     position: relative;
     grid-area: submit;
-    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+    background: linear-gradient(90deg, rgba(46,0,255,1) 0%, rgba(255,0,129,1) 96%);
     border-radius: 35px;
     border: none;
     cursor: pointer;
     text-align: center;
     animation-name: submitField_load;
-    animation-duration: 4.3s;
+    animation-duration: 3s;
 }
 @keyframes submitField_load {
-    0%{opacity: 0; left: 60%; transform: scale(0.4)}
-    50%{opacity: 0; left: 60%; transform: scale(0.4)}
-    100%{opacity: 100%;left: 0; transform: scale(1)}
+    0%{opacity: 0; top: 400%; transform: scale(0.4)}
+    50%{opacity: 0; top: 400%; transform: scale(0.4)}
+    100%{opacity: 100%; top: 0; transform: scale(1)}
 }
 
 #button-submit_submitField {
     z-index: 2 ;
     position: relative;
-    width: 97%;
+    width: 98%;
     height: 85%;
     top: 7%;
     background: #fffeeb;
@@ -150,7 +206,7 @@ body {
     border: none;
     cursor: pointer;
     font-family: Poppins-Regular,sans-serif;
-    background: linear-gradient(90deg, rgba(0,211,255,1) 0%, rgba(0,240,8,1) 100%);
+    background: linear-gradient(90deg, rgb(46, 0, 255) 0%, rgb(255, 0, 129) 96%);
 }
 #button-submit_submitField:focus {
     animation-name: submit_focus;
